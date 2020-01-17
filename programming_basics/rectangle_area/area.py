@@ -1,6 +1,7 @@
 #!/bin/env python3
 '''
 Python Area of a Rectangle Calculator.
+By Macarthur Inbody
 In python it's way easier and requires less comments.
 '''
 #print the following string telling them what we're doing.

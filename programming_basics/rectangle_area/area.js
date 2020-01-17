@@ -1,5 +1,6 @@
 /*
 * Area of a Rectangle JavaScript Version.
+* By Macarthur Inbody
 * The following is a basic version of the same script but in JavaScript.
 */
 //declare base to zero.

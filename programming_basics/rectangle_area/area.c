@@ -1,6 +1,7 @@
 /*
 * Area of a rectangle calculator.
 * Done entirely in C.
+* By Macarthur Inbody
 */
 //Have to include the IO functions.
 #include <stdio.h>

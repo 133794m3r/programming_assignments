@@ -2,6 +2,7 @@
 <?PHP
 /*
 * Area of a Rectangle calculator.
+* By Macarthur Inbody
 * This is the PHP Version.
 */
 //In PHP there is no input function so I'm writing one.

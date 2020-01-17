@@ -1,4 +1,6 @@
 #!/bin/bash
+#Area of a Rectangle Calculator
+#By Macarthur Inbody
 #make base always be an int.
 declare -i base;
 #ditto

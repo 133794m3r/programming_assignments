@@ -1,5 +1,6 @@
 /*
 * Java Area of a rectangle.
+* By Macarthur Inbody
 * Java is typed so you have to set the type for everything.
 */
 //In java the Scanner class is how you handle user input.
