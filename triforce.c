@@ -12,6 +12,7 @@ int main(void){
 	printf("Enter the number of lines to use to make each triangle: ");
 	scanf("%d",&numbers);
 	numbers=numbers&63;
+	putchar('\n');
 	//top triangle.
 	for(i=0;i<=numbers;i++){
 
