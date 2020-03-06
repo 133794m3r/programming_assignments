@@ -1,0 +1,9 @@
+This folder contains the solutions to Kata on Codewars.
+Mostly the interesting ones.
+They are laid out like so.
+From top to bottom.
+<x>kyu
+	<language>
+		<challenge_name>.<language_extension>
+
+The x is for the level of the kyu itself.
