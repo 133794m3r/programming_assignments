@@ -4,4 +4,4 @@
 * I'm assuming this counts ";" I know there's more to get but I don't know
 * where else to squeeze chars from.
 */
-function bitCount(n){c=0;while(n) n&1?c++:0,n>>=1;return c}
+function bitCount(n){let c = 0;while(n) n&1?c++:0,n>>=1;return c}

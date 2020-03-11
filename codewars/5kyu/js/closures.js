@@ -31,3 +31,5 @@ console.log(three(minus(four())));
 console.log(eight(bitwise_and(two())));
 console.log(nine(bitwise_or(one())));
 console.log(four(bitwise_xor(nine())));
+console.log(five(bitwise_shiftl(six())));
+console.log(six(bitwise_shiftr(seven())));

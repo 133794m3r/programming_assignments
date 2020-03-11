@@ -1,6 +1,7 @@
 import itertools
 
-def factors(n):
+def factors(n: int) -> int:
+
     f = 2
     increments = itertools.chain([1,2,2], itertools.cycle([4,2,4,2,4,6,2,6]))
     for incr in increments:
