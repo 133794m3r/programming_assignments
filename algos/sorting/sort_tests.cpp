@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include "../vectors.hxx"
 #include "sort_algos.hxx"
 template <typename T, typename N> void print_arr(T *arr, N n) {
 	N i;
@@ -31,5 +30,15 @@ int main(){
 	std::cout << "merge arr" << std::endl;
 	merge_sort(arr2,10);
 	print_arr(arr2,10);
+	unsigned long arr3[10]={10,8,5,100,1023,2013,3012,1111,22,33};
+
+	radix_sort(arr3,10);
+	std::cout << "[";
+	for(int i=0;i<10;i++){
+		std::cout << arr3[i];
+		if(i != 9)
+			std::cout << ", ";
+	}
+	std::cout << "]" << std::endl;
 	return 0;
 }
