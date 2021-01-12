@@ -44,9 +44,9 @@ template<typename T> class LinkedList {
 	LinkedList(std::vector<T> &A) {
 
 		head_ = new Node(A[0]);
-		Node *t, *last;
-		length_ = A.size();
-		for (unsigned long long i = 1; i < length_; i++) {
+		Node *t, *last=head_;
+		length_ = static_cast<long long>(A.size());
+		for (long long i = 1; i < length_; i++) {
 			t = new Node(A[i]);
 			last->next = t;
 			last = t;
@@ -66,7 +66,7 @@ template<typename T> class LinkedList {
 		}
 		return current;
 	}
-	void set(T val,long long idx){
+	void set(long long idx, T val){
 		Node *p = get(idx);
 		p->data = val;
 	}
@@ -78,7 +78,7 @@ template<typename T> class LinkedList {
 		return tmp->data;
 	}
 
-	void insert(T val,long long idx){
+	void insert(long long idx,T val){
 		if(idx > length_ || idx < 0){
 			return;
 		}
@@ -87,14 +87,15 @@ template<typename T> class LinkedList {
 			tail_ = head_;
 		}
 		else if(idx == 0){
-			auto *t = new Node(val,head_);
-			head_ = t;
+			return unshift(val);
+		}
+		else if(idx == length_){
+			return push(val);
 		}
 		else{
 			Node *prev = get(idx-1);
-			auto *p = new Node(val, prev->next);
+			auto *p = new Node(val,prev->next);
 			prev->next = p;
-
 		}
 		length_++;
 
@@ -197,35 +198,38 @@ template<typename T> class LinkedList {
 		}
 	}
 
-	void append(LinkedList<T> &_list){
-		Node* temp = _list.head_;
-		while (temp != nullptr) {
-			push(temp->data);
-			temp = temp->next;
+	void append(const LinkedList<T> &second_list){
+		Node *temp = second_list.head_;
+		if(this->head_ == second_list.head_){
+			long long max = second_list.length_;
+			for(long long i=0;i<max;i++){
+				push(temp->data);
+				temp=temp->next;
+				if(temp == nullptr)
+					break;
+			}
+		}
+		else{
+			while(temp != nullptr){
+				push(temp->data);
+				temp=temp->next;
+			}
 		}
 	}
 
 	LinkedList<T> operator+(const LinkedList<T> &second_list) const{
 		LinkedList<T> *ret = this;
-		Node *tmp = second_list.head_;
-		while(tmp != nullptr){
-			ret->push(tmp->data);
-			tmp=tmp->next;
-		}
+		ret->append(second_list);
+
 		return &ret;
 	}
-	LinkedList<T>& operator+=(const LinkedList<T>& _list) {
 
-		Node* temp = _list.head_;
-
-		while (temp != nullptr) {
-			push(temp->data);
-			temp = temp->next;
-		}
-
+	LinkedList<T>& operator+=(const LinkedList<T>& second_list) {
+		append(second_list);
 		return *this;
 
 	}
+
 	~LinkedList(){
 		Node* current = head_;
 		Node* next=nullptr;

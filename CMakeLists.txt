@@ -22,7 +22,6 @@ add_executable(sort_tests
 		algos/sorting/sort_tests.cpp)
 
 add_executable(linked_list
-		algos/data_structures/linked_list.hxx algos/data_structures/linked_list.cpp)
-
-add_executable(ll
-		algos/data_structures/ll.cpp)
+		data_structures/linked_list/d_linked_lists.hxx
+		data_structures/linked_list/linked_lists.hxx
+		data_structures/linked_list/linked_list.cpp)
