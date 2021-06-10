@@ -29,7 +29,7 @@ for test_num,test in enumerate(tests):
 					cur_min = test[k]
 			total += cur_min
 	
-
+	total = (total % 109) + 7
 	if total == answers[test_num]:
 		print("Passed")
 	else:
