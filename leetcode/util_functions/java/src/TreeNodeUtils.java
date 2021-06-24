@@ -20,18 +20,18 @@ import java.util.Arrays;
 
 public class TreeNodeUtils {
 	public static class TreeNode{
-		int val;
+		Integer val;
 		TreeNode left = null;
 		TreeNode right = null;
 		TreeNode(){}
-		TreeNode(int val){ this.val = val;}
+		TreeNode(Integer val){ this.val = val;}
 	}
 	public static void insertNode(TreeNode node, Integer key){
 		if(node == null){
 			node = new TreeNode(key);
 			return;
 		}
-		Deque<TreeNode> q = new ArrayDeque<TreeNode>();
+		Deque<TreeNode> q = new ArrayDeque<>();
 		q.add(node);
 		while(!q.isEmpty()){
 			node = q.removeFirst();
@@ -53,12 +53,21 @@ public class TreeNodeUtils {
 	public static TreeNode arrayToTreeNode(Integer[] arr){
 		if(arr.length == 0)
 			return null;
-		TreeNode root = new TreeNode(arr[0]);
-		for(int i=1;i<arr.length;i++){
-			if(arr[i] != null){
-				insertNode(root,arr[i]);
+			
+		int arr_len = arr.length;
+		class x_ {
+			TreeNode _rec_insert(TreeNode root, Integer i) {
+				if(i < arr_len){
+					root = new TreeNode(arr[i]);
+					int l = (i << 1) + 1;
+					root.left = _rec_insert(root.left, l);
+					root.right = _rec_insert(root.right, l + 1);
+				}
+				return root;
 			}
 		}
+		TreeNode root = null;
+		root = new x_()._rec_insert(root,0);
 		return root;
 	}
 
@@ -82,7 +91,7 @@ public class TreeNodeUtils {
 	public static ArrayList<Integer> treeNodeToArrayList(TreeNode root){
 		Deque<TreeNode> q = new ArrayDeque<>();
 		q.add(root);
-		ArrayList<Integer> data = new ArrayList<Integer>();
+		ArrayList<Integer> data = new ArrayList<>();
 		while(!q.isEmpty()){
 			TreeNode cur = q.removeFirst();
 			data.add(cur.val);
@@ -93,10 +102,10 @@ public class TreeNodeUtils {
 		}
 		return data;
 	}
-	public static void main(String args[]){
-		Integer arr[] = {1,2,3,4,5,6};
+	public static void main(String[] args){
+		Integer[] arr = {1,2,2,3,3,null,null,4,4};//{1,2,3,4,5,6};
 		TreeNode t = arrayToTreeNode(arr);
-		Integer out[] = treeNodeToArray(t,arr.length);
+		Integer[] out = treeNodeToArray(t,arr.length);
 		ArrayList<Integer> out2 = treeNodeToArrayList(t);
 
 		System.out.println(Arrays.toString(arr));

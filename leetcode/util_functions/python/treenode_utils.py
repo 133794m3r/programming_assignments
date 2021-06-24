@@ -72,16 +72,18 @@ def list_to_bt(test_list: list) -> Optional[TreeNode]:
 	:return: The created Binary Tree or None if the list is empty.
 	"""
 
+	def _rec_insert(root,i):
+		if i < test_len:
+			root = TreeNode(test_list[i])
+			l = (i<<1)+1
+			root.left = _rec_insert(t.left,l)
+			root.right = _rec_insert(t.right,l+1)
+		return root
 	if len(test_list) == 0:
 		return None
-	# Make root be the first element
-	root = TreeNode(test_list[0])
-	# iterate over the keys from the 2nd element on
-	for key in test_list[1:]:
-		# no need to insert a None
-		if key is not None:
-			insert_node(root, key)
-	# return the root node
+	test_len = len(test_list)
+	root = None
+	root = _rec_insert(root,0)
 	return root
 
 
@@ -94,7 +96,7 @@ def bt_to_list(root: TreeNode) -> list[int]:
 	"""
 
 	# use a deque b/c we're always popping from front.
-	queue = deque((root))
+	queue = deque([root])
 	# our data list
 	data = []
 	# while we have data in it.
@@ -113,3 +115,4 @@ def bt_to_list(root: TreeNode) -> list[int]:
 			if cur.right: queue.append(cur.right)
 	# then we return the data.
 	return data
+
