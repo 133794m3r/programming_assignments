@@ -1,3 +1,4 @@
+from tree_node import *
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
         if root is None:
