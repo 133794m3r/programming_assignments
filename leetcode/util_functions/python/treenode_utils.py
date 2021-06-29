@@ -76,8 +76,8 @@ def list_to_bt(test_list: list) -> Optional[TreeNode]:
 		if i < test_len:
 			root = TreeNode(test_list[i])
 			l = (i<<1)+1
-			root.left = _rec_insert(t.left,l)
-			root.right = _rec_insert(t.right,l+1)
+			root.left = _rec_insert(root.left,l)
+			root.right = _rec_insert(root.right,l+1)
 		return root
 	if len(test_list) == 0:
 		return None
@@ -115,4 +115,8 @@ def bt_to_list(root: TreeNode) -> list[int]:
 			if cur.right: queue.append(cur.right)
 	# then we return the data.
 	return data
+
+
+bt = list_to_bt(['a','b','c','d','e','f'])
+print(bt_to_list(bt))
 
