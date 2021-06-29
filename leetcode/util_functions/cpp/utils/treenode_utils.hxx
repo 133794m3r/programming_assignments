@@ -73,10 +73,11 @@ template <class T,class Allocator> std::ostream& operator<<(std::ostream& os, co
 /**
  * Same as before but this time lets you read in a list of values from std::in and put them into a vector.
  */
-template <class T,class Allocator> std::istream& operator>>(std::istream& is, std::vector<T,Allocator> &m){
-	size_t n=m.size();
-	for(size_t i=0;i<n;i++){
+template <class T,class Allocator> std::istream& operator>>(std::istream& is, std::vector<T,Allocator> &m) {
+	size_t n = m.size();
+	for (size_t i = 0; i < n; i++) {
 		is >> m[i];
 	}
 	return is;
+}
 #endif //TREENODE_UTILS_HXX
