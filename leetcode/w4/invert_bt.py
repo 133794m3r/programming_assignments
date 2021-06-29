@@ -1,4 +1,6 @@
 from tree_node import TreeNode
+
+
 class Solution:
 	def invertTree(self, root: TreeNode) -> TreeNode:
 		def _invert(cur):

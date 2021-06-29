@@ -1,4 +1,6 @@
 from tree_node import TreeNode
+
+
 class Solution:
 	def pruneTree(self, root: TreeNode) -> TreeNode:
 		def _prune(node):
@@ -10,6 +12,7 @@ class Solution:
 			if not right:
 				node.right = None
 			return node.val == 1 or left or right
+
 		r = _prune(root)
 		if r:
 			return root
